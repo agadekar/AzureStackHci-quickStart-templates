@@ -113,7 +113,7 @@
     "containerRegistryName": "[substring(concat('cr',uniqueString(resourceGroup().id, deployment().name )),0,7)]",
     "endpointResourceId": "[resourceId('Microsoft.MachineLearningServices/workspaces/onlineEndpoints',parameters('amlWorkspace'), parameters('endpointLink'))]",
     "computeName": "[concat('compute-',parameters('compute'))]",
-    "computeInstanceName": "[concat(variables('computeName'),'-instance')]",
+    "computeInstanceName": "[concat(replace(variables('computeName'),'-',''),'Instn')]",
     "computeResourceId": "[resourceId('Microsoft.MachineLearningServices/workspaces/computes',parameters('amlWorkspace'),variables('computeName'))]",
     "envName": "[concat(variables('computeName'),'-env')]",
     "envResourceId": "[resourceId('Microsoft.MachineLearningServices/workspaces/environments/versions',parameters('amlWorkspace'),variables('envName'),'1')]",
